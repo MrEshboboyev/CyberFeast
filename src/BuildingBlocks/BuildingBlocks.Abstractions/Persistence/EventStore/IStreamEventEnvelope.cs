@@ -1,4 +1,6 @@
-﻿namespace BuildingBlocks.Abstractions.Persistence.EventStore;
+﻿using BuildingBlocks.Abstractions.Events;
+
+namespace BuildingBlocks.Abstractions.Persistence.EventStore;
 
 /// <summary>
 /// The Envelope Wrapper Pattern standardizes and enhances message handling by wrapping messages with metadata like
@@ -23,4 +25,15 @@ public interface IStreamEventEnvelope
     IStreamEventMetadata? Metadata { get; }
 }
 
-// with Domain Events (coming soon)
+/// <summary>
+/// Defines a wrapper for stream events with strongly-typed event data.
+/// </summary>
+/// <typeparam name="T">The type of the event data.</typeparam>
+public interface IStreamEventEnvelope<out T> : IStreamEventEnvelope
+    where T : IDomainEvent
+{
+    /// <summary>
+    /// Gets the strongly-typed event data.
+    /// </summary>
+    new T Data { get; }
+}
