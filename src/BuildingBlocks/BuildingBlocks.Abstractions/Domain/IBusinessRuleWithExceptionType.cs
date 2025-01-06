@@ -13,7 +13,7 @@ public interface IBusinessRuleWithExceptionType<out TException>
     TException Exception { get; }
 
     /// <summary>
-    /// Indicates whether the business rule is broken.
+    /// Method the business rule is broken.
     /// </summary>
-    bool IsBroken { get; }
+    bool IsBroken();
 }

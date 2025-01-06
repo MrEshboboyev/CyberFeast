@@ -16,7 +16,7 @@ public interface IBusinessRule
     int Status { get; }
 
     /// <summary>
-    /// Indicates whether the business rule is broken.
+    /// Method the business rule is broken.
     /// </summary>
-    bool IsBroken { get; }
+    bool IsBroken();
 }
