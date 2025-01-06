@@ -32,7 +32,7 @@ public static class AggregateFactory<T>
     public static T CreateAggregate()
     {
         if (_constructor == null)
-            throw new Exception($"Aggregate {typeof(T).Name} does not have a parameterless constructor");
+            throw new System.Exception($"Aggregate {typeof(T).Name} does not have a parameterless constructor");
         return _constructor();
     }
 }

@@ -32,7 +32,7 @@ public abstract record EnumerationRecord<T>(int Value, string DisplayName) : ICo
             {
                 if (!items.TryAdd(item.Value.DisplayName, item.Value))
                 {
-                    throw new Exception(
+                    throw new System.Exception(
                         $"DisplayName needs to be unique. '{item.Value.DisplayName}' already exists"
                     );
                 }
