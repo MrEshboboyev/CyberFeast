@@ -1,14 +1,14 @@
 ﻿using BuildingBlocks.Abstractions.Events.Internal;
+using BuildingBlocks.Abstractions.Messaging;
 
 namespace BuildingBlocks.Abstractions.Events;
 
 /// <summary>
-/// Defines a mapper for events, extending the domain notification event mapper.
+/// Defines a mapper for events, extending the domain notification event mapper and the integration event mapper.
 /// </summary>
-public interface IEventMapper : IIDomainNotificationEventMapper
+public interface IEventMapper : IIDomainNotificationEventMapper, IIntegrationEventMapper
 {
-    // The interface can be extended to include integration event mapping in the future.
-    // IIntegrationEventMapper functionality will be added here.
+    // The interface can be extended to include additional event mapping functionality in the future.
 }
 
 /// <summary>
@@ -31,4 +31,22 @@ public interface IIDomainNotificationEventMapper
     IDomainNotificationEvent? MapToDomainNotificationEvent(IDomainEvent domainEvent);
 }
 
-// with Integration event (coming soon) 
+/// <summary>
+/// Defines methods for mapping domain events to integration events.
+/// </summary>
+public interface IIntegrationEventMapper
+{
+    /// <summary>
+    /// Maps a list of domain events to a list of integration events.
+    /// </summary>
+    /// <param name="domainEvents">The list of domain events to map.</param>
+    /// <returns>A read-only list of mapped integration events.</returns>
+    IReadOnlyList<IIntegrationEvent?>? MapToIntegrationEvents(IReadOnlyList<IDomainEvent> domainEvents);
+
+    /// <summary>
+    /// Maps a single domain event to an integration event.
+    /// </summary>
+    /// <param name="domainEvent">The domain event to map.</param>
+    /// <returns>The mapped integration event.</returns>
+    IIntegrationEvent? MapToIntegrationEvent(IDomainEvent domainEvent);
+}
