@@ -10,7 +10,7 @@ public interface IRetryDbContextExecution
     /// </summary>
     /// <param name="action">The asynchronous action to retry.</param>
     /// <returns>A task that represents the asynchronous operation.</returns>
-    Task RetryOnExceptionAsync(Func<Exception, Task> action);
+    Task RetryOnExceptionAsync(Func<Task> action);
 
     /// <summary>
     /// Asynchronously retries the specified action that returns a result in case of an exception.
@@ -18,5 +18,5 @@ public interface IRetryDbContextExecution
     /// <typeparam name="TResult">The type of the result returned by the action.</typeparam>
     /// <param name="action">The asynchronous action to retry.</param>
     /// <returns>A task that represents the asynchronous operation and contains the result of type TResult.</returns>
-    Task<TResult> RetryOnExceptionAsync<TResult>(Func<Exception, Task<TResult>> action);
+    Task<TResult> RetryOnExceptionAsync<TResult>(Func<Task<TResult>> action);
 }
