@@ -8,7 +8,7 @@ public interface IDomainEvent : IEvent
     /// <summary>
     /// Gets the identifier of the aggregate which has generated the event.
     /// </summary>
-    dynamic AggregateId { get; }
+    dynamic? AggregateId { get; }
 
     /// <summary>
     /// Gets the sequence number of the event within the aggregate.
@@ -21,5 +21,5 @@ public interface IDomainEvent : IEvent
     /// <param name="aggregateId">The identifier of the aggregate.</param>
     /// <param name="version">The version of the event.</param>
     /// <returns>A new domain event instance.</returns>
-    IDomainEvent WithAggregate(dynamic aggregateId, long version);
+    IDomainEvent WithAggregate(dynamic? aggregateId, long version);
 }
