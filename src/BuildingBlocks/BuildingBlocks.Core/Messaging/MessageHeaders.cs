@@ -1,0 +1,19 @@
+﻿namespace BuildingBlocks.Core.Messaging;
+
+/// <summary>
+/// Provides a set of constant string values representing common message headers used in messaging systems.
+/// </summary>
+public static class MessageHeaders
+{
+    public const string MessageId = "message-id";
+    public const string CorrelationId = "correlation-id";
+    public const string CausationId = "causation-id";
+    public const string TraceId = "trace-id";
+    public const string SpanId = "span-id";
+    public const string ParentSpanId = "parent-id";
+    public const string Name = "name";
+    public const string Type = "type";
+    public const string Created = "created";
+    public const string ExchangeOrTopic = "exchange-topic";
+    public const string Queue = "queue";
+}
