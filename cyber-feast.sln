@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.HealthCheck"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Integration.MassTransit", "src\BuildingBlocks\BuildingBlocks.Integration.MassTransit\BuildingBlocks.Integration.MassTransit.csproj", "{24E1D6A3-DB4E-4AD9-9735-05F644252891}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Logging", "src\BuildingBlocks\BuildingBlocks.Logging\BuildingBlocks.Logging.csproj", "{31BFA849-04AB-4440-BACC-44BAF4572D89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,7 @@ Global
 		{08D714BF-0027-4A23-A8B8-58E36A5BC593} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
 		{94FC34E4-7839-4DB8-9095-27EF23E811A0} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
 		{24E1D6A3-DB4E-4AD9-9735-05F644252891} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
+		{31BFA849-04AB-4440-BACC-44BAF4572D89} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{0CE2992B-6E44-43DD-88CA-F372A98CD64C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -55,5 +58,9 @@ Global
 		{24E1D6A3-DB4E-4AD9-9735-05F644252891}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24E1D6A3-DB4E-4AD9-9735-05F644252891}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24E1D6A3-DB4E-4AD9-9735-05F644252891}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31BFA849-04AB-4440-BACC-44BAF4572D89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31BFA849-04AB-4440-BACC-44BAF4572D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31BFA849-04AB-4440-BACC-44BAF4572D89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31BFA849-04AB-4440-BACC-44BAF4572D89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
