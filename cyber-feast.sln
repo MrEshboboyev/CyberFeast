@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Persistence.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Resiliency", "src\BuildingBlocks\BuildingBlocks.Resiliency\BuildingBlocks.Resiliency.csproj", "{E4EE7827-987C-47AD-993C-A435EBC8B238}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Security", "src\BuildingBlocks\BuildingBlocks.Security\BuildingBlocks.Security.csproj", "{A8A0DADD-29B0-4675-BA94-4E9F57B6305C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,7 @@ Global
 		{80EBC22E-F517-43C6-AE5E-D226206C960E} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
 		{2CBEA687-B204-4EF8-8869-0212C10C162B} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
 		{E4EE7827-987C-47AD-993C-A435EBC8B238} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
+		{A8A0DADD-29B0-4675-BA94-4E9F57B6305C} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{0CE2992B-6E44-43DD-88CA-F372A98CD64C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -104,5 +107,9 @@ Global
 		{E4EE7827-987C-47AD-993C-A435EBC8B238}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4EE7827-987C-47AD-993C-A435EBC8B238}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4EE7827-987C-47AD-993C-A435EBC8B238}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8A0DADD-29B0-4675-BA94-4E9F57B6305C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8A0DADD-29B0-4675-BA94-4E9F57B6305C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8A0DADD-29B0-4675-BA94-4E9F57B6305C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8A0DADD-29B0-4675-BA94-4E9F57B6305C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
