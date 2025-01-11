@@ -1,0 +1,211 @@
+﻿using System.Text;
+using System.Text.Json;
+using BuildingBlocks.Core.Extensions;
+using BuildingBlocks.Core.Extensions.ServiceCollection;
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Prometheus;
+
+namespace BuildingBlocks.HealthCheck;
+
+/// <summary>
+/// Provides extension methods for adding and configuring health checks in a web application.
+/// </summary>
+public static class DependencyInjectionExtensions
+{
+    private static readonly string[] _defaultTags = ["live", "ready"];
+
+    /// <summary>
+    /// Adds custom health checks to the WebApplicationBuilder.
+    /// </summary>
+    /// <param name="builder">The web application builder.</param>
+    /// <param name="healthChecksBuilder">An optional action to configure additional health checks.</param>
+    /// <param name="configurator">An optional action to configure health options.</param>
+    /// <returns>The updated web application builder.</returns>
+    public static WebApplicationBuilder AddCustomHealthCheck(
+        this WebApplicationBuilder builder,
+        Action<IHealthChecksBuilder>? healthChecksBuilder = null,
+        Action<HealthOptions>? configurator = null
+    )
+    {
+        var healthOptions = builder.Configuration.BindOptions<HealthOptions>();
+        configurator?.Invoke(healthOptions);
+
+        // Add health options to the dependency injection
+        builder.Services.AddValidationOptions<HealthOptions>(opt =>
+            configurator?.Invoke(opt));
+
+        if (!healthOptions.Enabled)
+        {
+            return builder;
+        }
+
+        var healthCheckBuilder = builder
+            .Services.AddHealthChecks()
+            .AddDiskStorageHealthCheck(_ => { }, tags: _defaultTags)
+            .AddPingHealthCheck(_ => { }, tags: _defaultTags)
+            .AddPrivateMemoryHealthCheck(512 * 1024 * 1024, tags: _defaultTags)
+            .AddDnsResolveHealthCheck(_ => { }, tags: _defaultTags)
+            .AddResourceUtilizationHealthCheck(o =>
+            {
+                o.CpuThresholds = new ResourceUsageThresholds
+                {
+                    DegradedUtilizationPercentage = 80,
+                    UnhealthyUtilizationPercentage = 90
+                };
+                o.MemoryThresholds = new ResourceUsageThresholds
+                {
+                    DegradedUtilizationPercentage = 80,
+                    UnhealthyUtilizationPercentage = 90
+                };
+                o.SamplingWindow = TimeSpan.FromSeconds(5);
+            })
+            .ForwardToPrometheus();
+
+        healthChecksBuilder?.Invoke(healthCheckBuilder);
+
+        builder.Services.AddHealthChecksUI(setup =>
+        {
+            setup.SetEvaluationTimeInSeconds(60);
+            setup.AddHealthCheckEndpoint("All Checks", "/healthz");
+            setup.AddHealthCheckEndpoint("Infra", "/health/infra");
+            setup.AddHealthCheckEndpoint("Bus", "/health/bus");
+            setup.AddHealthCheckEndpoint("Database", "/health/database");
+            setup.AddHealthCheckEndpoint("Downstream Services", "/health/downstream-services");
+        }).AddInMemoryStorage();
+
+        return builder;
+    }
+
+    /// <summary>
+    /// Configures custom health check endpoints in the web application.
+    /// </summary>
+    /// <param name="app">The web application.</param>
+    /// <returns>The configured web application.</returns>
+    public static WebApplication UseCustomHealthCheck(this WebApplication app)
+    {
+        var healthOptions = app.Configuration.BindOptions<HealthOptions>();
+        if (!healthOptions.Enabled)
+        {
+            return app;
+        }
+
+        app.UseHttpMetrics();
+        app.UseGrpcMetrics();
+
+        app.UseHealthChecks(
+                "/healthz",
+                new HealthCheckOptions
+                {
+                    Predicate = _ => true,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
+                    ResultStatusCodes =
+                    {
+                        [HealthStatus.Healthy] = StatusCodes.Status200OK,
+                        [HealthStatus.Degraded] = StatusCodes.Status500InternalServerError,
+                        [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable,
+                    },
+                }
+            )
+            .UseHealthChecks(
+                "/health/infra",
+                new HealthCheckOptions
+                {
+                    Predicate = check => check.Tags.Contains("infra"),
+                    AllowCachingResponses = false,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
+                }
+            )
+            .UseHealthChecks(
+                "/health/bus",
+                new HealthCheckOptions
+                {
+                    Predicate = check => check.Tags.Contains("bus"),
+                    AllowCachingResponses = false,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
+                }
+            )
+            .UseHealthChecks(
+                "/health/database",
+                new HealthCheckOptions
+                {
+                    Predicate = check => check.Tags.Contains("database"),
+                    AllowCachingResponses = false,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
+                }
+            )
+            .UseHealthChecks(
+                "/health/downstream-services",
+                new HealthCheckOptions
+                {
+                    Predicate = check => check.Tags.Contains("downstream-services"),
+                    AllowCachingResponses = false,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
+                }
+            )
+            .UseHealthChecks(
+                "/health/ready",
+                new HealthCheckOptions
+                {
+                    Predicate = check => check.Tags.Contains("ready"),
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                }
+            )
+            .UseHealthChecks(
+                "/health/live",
+                new HealthCheckOptions
+                {
+                    Predicate = check => check.Tags.Contains("live"),
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                }
+            )
+            .UseHealthChecksPrometheusExporter(
+                "/health/prometheus",
+                options => { options.ResultStatusCodes[HealthStatus.Unhealthy] = 200; }
+            )
+            .UseHealthChecksUI(setup =>
+            {
+                setup.ApiPath = "/healthcheck";
+                setup.UIPath = "/healthcheck-ui";
+            });
+
+        return app;
+    }
+
+    /// <summary>
+    /// Writes the health check response as a JSON object.
+    /// </summary>
+    /// <param name="context">The HTTP context.</param>
+    /// <param name="result">The health report result.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
+    private static Task WriteResponseAsync(HttpContext context, HealthReport result)
+    {
+        context.Response.ContentType = "application/json; charset=utf-8";
+
+        var options = new JsonWriterOptions { Indented = true };
+
+        using var stream = new MemoryStream();
+        using (var writer = new Utf8JsonWriter(stream, options))
+        {
+            writer.WriteStartObject();
+            writer.WriteString("status", result.Status.ToString());
+            writer.WriteStartObject("results");
+            foreach (var entry in result.Entries)
+            {
+                writer.WriteStartObject(entry.Key);
+                writer.WriteString("status", entry.Value.Status.ToString());
+                writer.WriteEndObject();
+            }
+
+            writer.WriteEndObject();
+        }
+
+        var json = Encoding.UTF8.GetString(stream.ToArray());
+
+        return context.Response.WriteAsync(json, CancellationToken.None);
+    }
+}

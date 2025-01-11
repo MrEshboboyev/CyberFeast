@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AspNetCore.HealthChecks.Network" Version="9.0.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.Prometheus.Metrics" Version="9.0.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.Publisher.Prometheus" Version="9.0.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.System" Version="9.0.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.UI" Version="9.0.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage" Version="9.0.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="9.0.0" />
+        <PackageReference Include="Microsoft.Diagnostics.NETCore.Client" Version="0.2.553101" />
+        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="9.0.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.MongoDb" Version="9.0.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.UI.SQLite.Storage" Version="9.0.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="9.0.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="9.0.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.EventStore" Version="9.0.0" />
+        <PackageReference Include="prometheus-net.AspNetCore" Version="8.2.1" />
+        <PackageReference Include="prometheus-net.AspNetCore.Grpc" Version="8.2.1" />
+        <PackageReference Include="prometheus-net.AspNetCore.HealthChecks" Version="8.2.1" />
+        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" />
+        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="9.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.ResourceUtilization" Version="9.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BuildingBlocks.Core\BuildingBlocks.Core.csproj" />
+    </ItemGroup>
+
+</Project>

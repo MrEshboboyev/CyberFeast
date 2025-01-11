@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="MassTransit.Abstractions" Version="8.3.5-develop.2164" />
+        <PackageReference Include="MassTransit.Abstractions" Version="8.3.5-develop.2173" />
         <PackageReference Include="Ben.Demystifier" Version="0.4.1" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.0" />
