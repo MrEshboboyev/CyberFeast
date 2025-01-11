@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Integration.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Logging", "src\BuildingBlocks\BuildingBlocks.Logging\BuildingBlocks.Logging.csproj", "{31BFA849-04AB-4440-BACC-44BAF4572D89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.OpenTelemetry", "src\BuildingBlocks\BuildingBlocks.OpenTelemetry\BuildingBlocks.OpenTelemetry.csproj", "{D0A7DCD7-AB55-4920-B735-CCA26BD2B091}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,7 @@ Global
 		{94FC34E4-7839-4DB8-9095-27EF23E811A0} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
 		{24E1D6A3-DB4E-4AD9-9735-05F644252891} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
 		{31BFA849-04AB-4440-BACC-44BAF4572D89} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
+		{D0A7DCD7-AB55-4920-B735-CCA26BD2B091} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{0CE2992B-6E44-43DD-88CA-F372A98CD64C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -62,5 +65,9 @@ Global
 		{31BFA849-04AB-4440-BACC-44BAF4572D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31BFA849-04AB-4440-BACC-44BAF4572D89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31BFA849-04AB-4440-BACC-44BAF4572D89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0A7DCD7-AB55-4920-B735-CCA26BD2B091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0A7DCD7-AB55-4920-B735-CCA26BD2B091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0A7DCD7-AB55-4920-B735-CCA26BD2B091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0A7DCD7-AB55-4920-B735-CCA26BD2B091}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
