@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Persistence.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Persistence.EventStoreDB", "src\BuildingBlocks\BuildingBlocks.Persistence.EventStoreDB\BuildingBlocks.Persistence.EventStoreDB.csproj", "{5AC37F7A-E735-4A37-9962-809DB23771AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Persistence.Marten", "src\BuildingBlocks\BuildingBlocks.Persistence.Marten\BuildingBlocks.Persistence.Marten.csproj", "{80EBC22E-F517-43C6-AE5E-D226206C960E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,7 @@ Global
 		{D0A7DCD7-AB55-4920-B735-CCA26BD2B091} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
 		{F6C08F17-529C-4F2D-BDBB-0C37BD8D2625} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
 		{5AC37F7A-E735-4A37-9962-809DB23771AD} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
+		{80EBC22E-F517-43C6-AE5E-D226206C960E} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{0CE2992B-6E44-43DD-88CA-F372A98CD64C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -83,5 +86,9 @@ Global
 		{5AC37F7A-E735-4A37-9962-809DB23771AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AC37F7A-E735-4A37-9962-809DB23771AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AC37F7A-E735-4A37-9962-809DB23771AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80EBC22E-F517-43C6-AE5E-D226206C960E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80EBC22E-F517-43C6-AE5E-D226206C960E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80EBC22E-F517-43C6-AE5E-D226206C960E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80EBC22E-F517-43C6-AE5E-D226206C960E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
