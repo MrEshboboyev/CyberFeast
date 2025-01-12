@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <ContainerImageName>gateway</ContainerImageName>
+        <ContainerImageTag>dev</ContainerImageTag>
+        <ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:latest</ContainerBaseImage>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Duende.BFF.Yarp" Version="3.0.0-preview.3" />
+        <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+        <PackageReference Include="Serilog.Sinks.Spectre" Version="0.5.0" />
+        <PackageReference Include="Yarp.ReverseProxy" Version="2.2.0" />
+        <PackageReference Include="MassTransit.Abstractions" Version="8.3.5-develop.2173" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\BuildingBlocks\BuildingBlocks.Logging\BuildingBlocks.Logging.csproj" />
+    </ItemGroup>
+
+</Project>
