@@ -34,6 +34,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Security", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Serialization", "src\BuildingBlocks\BuildingBlocks.Serialization\BuildingBlocks.Serialization.csproj", "{092E0643-7828-4823-8F35-3E667E27F01E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Swagger", "src\BuildingBlocks\BuildingBlocks.Swagger\BuildingBlocks.Swagger.csproj", "{04BF9D44-8AFE-4B5F-AE84-93916C2A375A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,7 @@ Global
 		{E4EE7827-987C-47AD-993C-A435EBC8B238} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
 		{A8A0DADD-29B0-4675-BA94-4E9F57B6305C} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
 		{092E0643-7828-4823-8F35-3E667E27F01E} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
+		{04BF9D44-8AFE-4B5F-AE84-93916C2A375A} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{0CE2992B-6E44-43DD-88CA-F372A98CD64C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -118,5 +121,9 @@ Global
 		{092E0643-7828-4823-8F35-3E667E27F01E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{092E0643-7828-4823-8F35-3E667E27F01E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{092E0643-7828-4823-8F35-3E667E27F01E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04BF9D44-8AFE-4B5F-AE84-93916C2A375A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04BF9D44-8AFE-4B5F-AE84-93916C2A375A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04BF9D44-8AFE-4B5F-AE84-93916C2A375A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04BF9D44-8AFE-4B5F-AE84-93916C2A375A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
