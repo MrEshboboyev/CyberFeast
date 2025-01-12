@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BuildingBlocks.Core\BuildingBlocks.Core.csproj" />
+      <ProjectReference Include="..\BuildingBlocks.Persistence.EfCore.Postgres\BuildingBlocks.Persistence.EfCore.Postgres.csproj" />
+    </ItemGroup>
+
+
+    <!--Set CopyToPublishDirectory to never for prevent copy and conflict with application api appsettings.json, always application appsettings.json should copy to the publish directory-->
+    <ItemGroup>
+        <Content Include="appsettings.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Never"/>
+    </ItemGroup>
+
+</Project>

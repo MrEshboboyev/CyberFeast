@@ -40,6 +40,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Validation",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Web", "src\BuildingBlocks\BuildingBlocks.Web\BuildingBlocks.Web.csproj", "{801D2D4B-DB40-4829-80F2-0C26AE31FC2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Messaging.Persistence.Postgres", "src\BuildingBlocks\BuildingBlocks.Messaging.Persistence.Postgres\BuildingBlocks.Messaging.Persistence.Postgres.csproj", "{C775746B-BBE8-44C5-AD4E-D3C67033BDFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,7 @@ Global
 		{04BF9D44-8AFE-4B5F-AE84-93916C2A375A} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
 		{1841564E-25D6-4432-B9E2-295B8F78750B} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
 		{801D2D4B-DB40-4829-80F2-0C26AE31FC2B} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
+		{C775746B-BBE8-44C5-AD4E-D3C67033BDFC} = {7AF29904-C1FC-40CC-A14F-A1B03D639D54}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{0CE2992B-6E44-43DD-88CA-F372A98CD64C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -139,5 +142,9 @@ Global
 		{801D2D4B-DB40-4829-80F2-0C26AE31FC2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{801D2D4B-DB40-4829-80F2-0C26AE31FC2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{801D2D4B-DB40-4829-80F2-0C26AE31FC2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C775746B-BBE8-44C5-AD4E-D3C67033BDFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C775746B-BBE8-44C5-AD4E-D3C67033BDFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C775746B-BBE8-44C5-AD4E-D3C67033BDFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C775746B-BBE8-44C5-AD4E-D3C67033BDFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
