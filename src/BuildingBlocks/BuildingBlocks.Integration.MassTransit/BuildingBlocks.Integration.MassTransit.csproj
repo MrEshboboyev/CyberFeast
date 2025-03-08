@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="MassTransit.RabbitMQ" Version="8.3.5-develop.2173" />
+        <PackageReference Include="MassTransit.RabbitMQ"/>
     </ItemGroup>
 
 </Project>
