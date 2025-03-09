@@ -1,0 +1,20 @@
+﻿using BuildingBlocks.Core.Domain;
+using FoodDelivery.Services.Orders.Orders.ValueObjects;
+
+namespace FoodDelivery.Services.Orders.Orders.Models;
+
+public class Order : Aggregate<OrderId>
+{
+    // EF
+    // this constructor is needed when we have a parameter constructor that has some navigation property classes in the parameters and ef will skip it and try to find other constructor, here default constructor (maybe will fix .net 8)
+    private Order() { }
+
+    public CustomerInfo Customer { get; private set; } = null!;
+    public ProductInfo Product { get; private set; } = null!;
+
+    public static Order Create(CustomerInfo customerInfo, ProductInfo productInfo)
+    {
+        // TODO: Complete order domain model
+        return new Order { Customer = customerInfo, Product = productInfo };
+    }
+}

@@ -1,0 +1,45 @@
+﻿using BuildingBlocks.Abstractions.Events;
+using FoodDelivery.Services.Orders.Customers.Features.CreatingCustomer.V1.Events.External;
+using FoodDelivery.Services.Shared.Customers.Customers.Events.V1.Integration;
+using Humanizer;
+using MassTransit;
+using RabbitMQ.Client;
+
+namespace FoodDelivery.Services.Orders.Customers;
+
+internal static class MassTransitExtensions
+{
+    internal static void AddCustomerEndpoints(this IRabbitMqBusFactoryConfigurator cfg, IBusRegistrationContext context)
+    {
+        // This `queueName` creates an `intermediary exchange` (default is Fan-out, but we can change it with re.ExchangeType) with the same queue named which bound to this exchange
+        cfg.ReceiveEndpoint(
+            nameof(CustomerCreatedV1).Underscore(),
+            re =>
+            {
+                re.Durable = true;
+
+                // set intermediate exchange type
+                // intermediate exchange name will be the same as queue name
+                re.ExchangeType = ExchangeType.Fanout;
+
+                // a replicated queue to provide high availability and data safety. available in RMQ 3.8+
+                re.SetQuorumQueue();
+
+                // with setting `ConfigureConsumeTopology` to `false`, we should create `primary exchange` and its bounded exchange manually with using `re.Bind` otherwise with `ConfigureConsumeTopology=true` it get publish topology for message type `T` with `_publishTopology.GetMessageTopology<T>()` and use its ExchangeType and ExchangeName based ofo default EntityFormatter
+                re.ConfigureConsumeTopology = false;
+
+                // masstransit uses `wire-tapping` pattern for defining exchanges. Primary exchange will send the message to intermediary fanout exchange
+                // setup primary exchange and its type
+                re.Bind<IEventEnvelope<CustomerCreatedV1>>(e =>
+                {
+                    e.RoutingKey = nameof(CustomerCreatedV1).Underscore();
+                    e.ExchangeType = ExchangeType.Direct;
+                });
+
+                re.ConfigureConsumer<CustomerCreatedConsumer>(context);
+
+                re.RethrowFaultedMessages();
+            }
+        );
+    }
+}

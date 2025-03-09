@@ -69,6 +69,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Ident
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Identity.Api", "src\Services\Identity\FoodDelivery.Services.Identity.Api\FoodDelivery.Services.Identity.Api.csproj", "{97BD62F2-D1FE-4FA5-A5DE-18C95C742C70}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Orders", "Orders", "{5EED3D5B-5E7D-4CA4-8F94-C479B8E65740}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Orders", "src\Services\Orders\FoodDelivery.Services.Orders\FoodDelivery.Services.Orders.csproj", "{0B77F88F-F17E-4782-80D7-99601765081C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -167,6 +171,10 @@ Global
 		{97BD62F2-D1FE-4FA5-A5DE-18C95C742C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97BD62F2-D1FE-4FA5-A5DE-18C95C742C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97BD62F2-D1FE-4FA5-A5DE-18C95C742C70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B77F88F-F17E-4782-80D7-99601765081C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B77F88F-F17E-4782-80D7-99601765081C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B77F88F-F17E-4782-80D7-99601765081C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B77F88F-F17E-4782-80D7-99601765081C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -200,6 +208,8 @@ Global
 		{A0C501FB-E6C6-4574-A5F1-E98D400F2D76} = {37312129-B896-40FC-B770-9504AF381161}
 		{9C0DF32A-1D6C-495B-B7AA-D1F72D2FCF39} = {A0C501FB-E6C6-4574-A5F1-E98D400F2D76}
 		{97BD62F2-D1FE-4FA5-A5DE-18C95C742C70} = {A0C501FB-E6C6-4574-A5F1-E98D400F2D76}
+		{5EED3D5B-5E7D-4CA4-8F94-C479B8E65740} = {37312129-B896-40FC-B770-9504AF381161}
+		{0B77F88F-F17E-4782-80D7-99601765081C} = {5EED3D5B-5E7D-4CA4-8F94-C479B8E65740}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A5638AA6-6B15-46B5-8677-C920FF9AC214}
