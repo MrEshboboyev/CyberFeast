@@ -20,6 +20,7 @@ using BuildingBlocks.Validation.Extensions;
 using BuildingBlocks.Web.Extensions;
 using BuildingBlocks.Web.RateLimit;
 using BuildingBlocks.Web.Versioning;
+using FoodDelivery.Services.Identity.Users;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -122,6 +123,21 @@ public static partial class WebApplicationBuilderExtensions
         builder.Services.AddPostgresMessagePersistence(builder.Configuration);
 
         builder.AddCustomRateLimit();
+
+        builder.AddCustomRateLimit();
+
+        builder.AddCustomMassTransit(
+            configureMessagesTopologies: (context, cfg) =>
+            {
+                cfg.ConfigureUserMessagesTopology();
+            },
+            configureMessagingOptions: msgCfg =>
+            {
+                msgCfg.AutoConfigEndpoints = false;
+                msgCfg.OutboxEnabled = true;
+                msgCfg.InboxEnabled = true;
+            }
+        );
 
         builder.AddCustomEasyCaching();
 
