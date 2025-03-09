@@ -1,0 +1,42 @@
+﻿using BuildingBlocks.Caching;
+using BuildingBlocks.Core.Exception.Types;
+using BuildingBlocks.Core.Web.Extensions;
+using EasyCaching.Core;
+using Microsoft.Extensions.Options;
+
+namespace FoodDelivery.Services.Identity.Api.Middlewares;
+
+public class RevokeAccessTokenMiddleware(
+    IEasyCachingProviderFactory cachingProviderFactory,
+    IOptions<CacheOptions> options
+) : IMiddleware
+{
+    private readonly IEasyCachingProvider _cachingProvider = cachingProviderFactory.GetCachingProvider(
+        options.Value.DefaultCacheType
+    );
+
+    public async Task InvokeAsync(HttpContext context, RequestDelegate next)
+    {
+        if (context.User.Identity is null || string.IsNullOrWhiteSpace(context.User.Identity.Name))
+        {
+            await next(context);
+            return;
+        }
+
+        var accessToken = GetTokenFromHeader(context);
+        var userName = context.User.Identity.Name;
+
+        var revokedToken = await _cachingProvider.GetAsync<string>($"{userName}_{accessToken}_revoked_token");
+        if (!string.IsNullOrWhiteSpace(revokedToken.Value))
+            throw new UnAuthorizedException("Access token is revoked, User in not authorized to access this resource");
+        
+        await next(context);
+    }
+
+    private static string? GetTokenFromHeader(HttpContext context)
+    {
+        var authorizationHeader = context.Request.Headers.Get<string>("authorization");
+
+        return authorizationHeader;
+    }
+}

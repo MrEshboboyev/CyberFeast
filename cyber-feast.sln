@@ -61,8 +61,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{A0C501FB-E6C6-4574-A5F1-E98D400F2D76}"
+	ProjectSection(SolutionItems) = preProject
+		migrations.bat = migrations.bat
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Identity", "src\Services\Identity\FoodDelivery.Services.Identity\FoodDelivery.Services.Identity.csproj", "{9C0DF32A-1D6C-495B-B7AA-D1F72D2FCF39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Identity.Api", "src\Services\Identity\FoodDelivery.Services.Identity.Api\FoodDelivery.Services.Identity.Api.csproj", "{97BD62F2-D1FE-4FA5-A5DE-18C95C742C70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -158,6 +163,10 @@ Global
 		{9C0DF32A-1D6C-495B-B7AA-D1F72D2FCF39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C0DF32A-1D6C-495B-B7AA-D1F72D2FCF39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C0DF32A-1D6C-495B-B7AA-D1F72D2FCF39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97BD62F2-D1FE-4FA5-A5DE-18C95C742C70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97BD62F2-D1FE-4FA5-A5DE-18C95C742C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97BD62F2-D1FE-4FA5-A5DE-18C95C742C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97BD62F2-D1FE-4FA5-A5DE-18C95C742C70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -190,6 +199,7 @@ Global
 		{C07BA866-AC99-4408-80F0-97030EF31F0F} = {13C6668E-C2D6-427C-A82A-3EC1002FFAF1}
 		{A0C501FB-E6C6-4574-A5F1-E98D400F2D76} = {37312129-B896-40FC-B770-9504AF381161}
 		{9C0DF32A-1D6C-495B-B7AA-D1F72D2FCF39} = {A0C501FB-E6C6-4574-A5F1-E98D400F2D76}
+		{97BD62F2-D1FE-4FA5-A5DE-18C95C742C70} = {A0C501FB-E6C6-4574-A5F1-E98D400F2D76}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A5638AA6-6B15-46B5-8677-C920FF9AC214}
