@@ -1,0 +1,72 @@
+using BuildingBlocks.Abstractions.Events;
+using BuildingBlocks.Abstractions.Persistence;
+using BuildingBlocks.Core.Extensions;
+using BuildingBlocks.Core.Extensions.ServiceCollection;
+using BuildingBlocks.Persistence.EfCore.Postgres;
+using FoodDelivery.Services.Identity.Shared.Data;
+using FoodDelivery.Services.Identity.Shared.Models;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+
+namespace FoodDelivery.Services.Identity.Shared.Extensions.WebApplicationBuilderExtensions;
+
+public static partial class WebApplicationBuilderExtensions
+{
+    public static WebApplicationBuilder AddCustomIdentity(
+        this WebApplicationBuilder builder,
+        IConfiguration configuration,
+        Action<IdentityOptions>? configure = null
+    )
+    {
+        builder.Services.AddValidatedOptions<IdentityOptions>();
+        var postgresOptions = builder.Configuration.BindOptions<PostgresOptions>();
+
+        if (postgresOptions.UseInMemory)
+        {
+            builder.Services.AddDbContext<IdentityContext>(options =>
+                options.UseInMemoryDatabase("Shop.Services.FoodDelivery.Services.Identity")
+            );
+
+            builder.Services.TryAddScoped<IDbFacadeResolver>(provider => provider.GetService<IdentityContext>()!);
+            builder.Services.TryAddScoped<IDomainEventContext>(provider => provider.GetService<IdentityContext>()!);
+        }
+        else
+        {
+            // Postgres
+            builder.Services.AddPostgresDbContext<IdentityContext>(configuration);
+
+            builder.Services.TryAddScoped<IMigrationExecutor, IdentityMigrationExecutor>();
+        }
+
+        // some dependencies will add here if not registered before
+        builder
+            .Services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+            {
+                // Password settings.
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 3;
+                options.Password.RequiredUniqueChars = 1;
+
+                // Lockout settings.
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers = true;
+
+                // User settings.
+                options.User.RequireUniqueEmail = true;
+
+                configure?.Invoke(options);
+            })
+            .AddEntityFrameworkStores<IdentityContext>()
+            .AddDefaultTokenProviders();
+
+        return builder;
+    }
+}
