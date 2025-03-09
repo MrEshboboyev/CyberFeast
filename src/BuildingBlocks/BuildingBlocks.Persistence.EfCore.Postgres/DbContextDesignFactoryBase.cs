@@ -54,6 +54,6 @@ public abstract class DbContextDesignFactoryBase<TDbContext>(
             .UseSnakeCaseNamingConvention()
             .ReplaceService<IValueConverterSelector, StronglyTypedIdValueConverterSelector<long>>();
 
-        return (TDbContext)Activator.CreateInstance(typeof(TDbContext), optionsBuilder.Options);
+        return (TDbContext)Activator.CreateInstance(typeof(TDbContext), optionsBuilder.Options)!;
     }
 }
