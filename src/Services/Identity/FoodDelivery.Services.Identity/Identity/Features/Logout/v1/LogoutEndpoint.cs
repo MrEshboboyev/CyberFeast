@@ -1,0 +1,71 @@
+using AutoMapper;
+using BuildingBlocks.Abstractions.Caching;
+using BuildingBlocks.Abstractions.Commands;
+using BuildingBlocks.Abstractions.Web.MinimalApi;
+using BuildingBlocks.Core.Web.Extensions;
+using BuildingBlocks.Security.Jwt;
+using BuildingBlocks.Web.Minimal.Extensions;
+using EasyCaching.Core;
+using Humanizer;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Options;
+
+namespace FoodDelivery.Services.Identity.Identity.Features.Logout.v1;
+
+public static class LogoutEndpoint
+{
+    internal static RouteHandlerBuilder MapLogoutEndpoint(this IEndpointRouteBuilder endpoints)
+    {
+        return endpoints
+            .MapPost("/logout", Handle)
+            .RequireAuthorization()
+            // .Produces(StatusCodes.Status200OK)
+            .WithName("Logout")
+            .WithDisplayName("Logout".Humanize())
+            .WithSummaryAndDescription("Logout".Humanize(), "Logout".Humanize())
+            .MapToApiVersion(1.0);
+
+        async Task<Ok> Handle([AsParameters] LogoutRequestParameters requestParameters)
+        {
+            var (context, commandBus, mapper, caching, jwtOptions, cancellationToken) = requestParameters;
+            var cacheProvider = caching.GetCachingProvider(nameof(CacheProviderType.InMemory));
+
+            await context.SignOutAsync();
+
+            if (!jwtOptions.Value.CheckRevokedAccessTokens) return TypedResults.Ok();
+
+            // The blacklist is saved in the format => "userName_revoked_tokens": [token1, token2,...]
+            var token = GetTokenFromHeader(context);
+            var userName = context.User.Identity!.Name;
+            
+            await cacheProvider.SetAsync(
+                $"{userName}_{token}_revoked_token",
+                token,
+                TimeSpan.FromSeconds(jwtOptions.Value.TokenLifeTimeSecond)
+            );
+
+            return TypedResults.Ok();
+        }
+    }
+
+    private static string? GetTokenFromHeader(HttpContext context)
+    {
+        var authorizationHeader = context.Request.Headers.Get<string>("authorization");
+
+        return authorizationHeader;
+    }
+}
+
+internal record LogoutRequestParameters(
+    [FromBody] HttpContext HttpContext,
+    ICommandBus CommandBus,
+    IMapper Mapper,
+    IEasyCachingProviderFactory CachingProviderFactory,
+    IOptions<JwtOptions> JwtOptions,
+    CancellationToken CancellationToken
+) : IHttpCommand;
