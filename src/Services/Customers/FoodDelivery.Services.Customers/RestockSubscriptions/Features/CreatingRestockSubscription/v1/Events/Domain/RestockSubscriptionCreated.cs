@@ -1,0 +1,85 @@
+using BuildingBlocks.Abstractions.Commands;
+using BuildingBlocks.Abstractions.Events;
+using BuildingBlocks.Core.Events.Internal;
+using BuildingBlocks.Core.Extensions;
+using FoodDelivery.Services.Customers.Customers.Exceptions.Application;
+using FoodDelivery.Services.Customers.Customers.ValueObjects;
+using FoodDelivery.Services.Customers.Shared.Data;
+using FoodDelivery.Services.Customers.Shared.Data.Extensions;
+
+namespace FoodDelivery.Services.Customers.RestockSubscriptions.Features.CreatingRestockSubscription.v1.Events.Domain;
+
+
+// we don't pass value-objects and domains to our commands and events, just primitive types
+internal record RestockSubscriptionCreated(
+    long Id,
+    long ProductId,
+    long CustomerId,
+    string ProductName,
+    string Email,
+    DateTime Created,
+    bool Processed
+) : DomainEvent
+{
+    public static RestockSubscriptionCreated Of(
+        long id,
+        long productId,
+        long customerId,
+        string productName,
+        string email,
+        DateTime created,
+        bool processed
+    )
+    {
+        id.NotBeNegativeOrZero();
+        productId.NotBeNegativeOrZero();
+        customerId.NotBeNegativeOrZero();
+        productName.NotBeNullOrWhiteSpace();
+        email.NotBeNullOrWhiteSpace();
+        created.NotBeInvalid();
+
+        return new RestockSubscriptionCreated(id, productId, customerId, productName, email, created, processed);
+    }
+
+    public CreateMongoRestockSubscriptionReadModels ToCreateMongoRestockSubscriptionReadModels(
+        long customerId,
+        string customerName
+    )
+    {
+        return new CreateMongoRestockSubscriptionReadModels(
+            Id,
+            customerId,
+            customerName,
+            ProductId,
+            ProductName,
+            Email,
+            Created,
+            Processed
+        );
+    }
+}
+
+internal class RestockSubscriptionCreatedHandler(
+    ICommandBus commandBus, 
+    CustomersDbContext customersDbContext) : IDomainEventHandler<RestockSubscriptionCreated>
+{
+    public async Task Handle(RestockSubscriptionCreated notification, CancellationToken cancellationToken)
+    {
+        notification.NotBeNull();
+
+        var customer = await customersDbContext.FindCustomerByIdAsync(CustomerId.Of(notification.CustomerId));
+
+        if (customer is null)
+        {
+            throw new CustomerNotFoundException(notification.CustomerId);
+        }
+
+        var mongoReadCommand = notification.ToCreateMongoRestockSubscriptionReadModels(
+            customer!.Id,
+            customer.Name.FullName
+        );
+
+        // Schedule multiple read sides to execute here
+        await commandBus.ScheduleAsync([mongoReadCommand], cancellationToken);
+    }
+}
