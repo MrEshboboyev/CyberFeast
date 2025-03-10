@@ -62,7 +62,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{A0C501FB-E6C6-4574-A5F1-E98D400F2D76}"
 	ProjectSection(SolutionItems) = preProject
-		migrations.bat = migrations.bat
+		src\Services\Identity\migrations.bat = src\Services\Identity\migrations.bat
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Identity", "src\Services\Identity\FoodDelivery.Services.Identity\FoodDelivery.Services.Identity.csproj", "{9C0DF32A-1D6C-495B-B7AA-D1F72D2FCF39}"
@@ -76,8 +76,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Orders.Api", "src\Services\Orders\FoodDelivery.Services.Orders.Api\FoodDelivery.Services.Orders.Api.csproj", "{7C943D5A-69D5-4D5F-AE24-5A470E25B3AC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalogs", "Catalogs", "{D2B8B5EE-A5FE-4C0F-A49E-9608B0F5160A}"
+	ProjectSection(SolutionItems) = preProject
+		src\Services\Catalogs\migrations.bat = src\Services\Catalogs\migrations.bat
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Catalogs", "src\Services\Catalogs\FoodDelivery.Services.Catalogs\FoodDelivery.Services.Catalogs.csproj", "{29F852AA-A5C1-0E65-6DC3-795E88A102EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Catalogs.Api", "src\Services\Catalogs\FoodDelivery.Services.Catalogs.Api\FoodDelivery.Services.Catalogs.Api.csproj", "{E135AE1D-26C0-4424-8698-68B224565F85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -189,6 +194,10 @@ Global
 		{29F852AA-A5C1-0E65-6DC3-795E88A102EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29F852AA-A5C1-0E65-6DC3-795E88A102EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29F852AA-A5C1-0E65-6DC3-795E88A102EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E135AE1D-26C0-4424-8698-68B224565F85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E135AE1D-26C0-4424-8698-68B224565F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E135AE1D-26C0-4424-8698-68B224565F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E135AE1D-26C0-4424-8698-68B224565F85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -227,6 +236,7 @@ Global
 		{7C943D5A-69D5-4D5F-AE24-5A470E25B3AC} = {5EED3D5B-5E7D-4CA4-8F94-C479B8E65740}
 		{D2B8B5EE-A5FE-4C0F-A49E-9608B0F5160A} = {37312129-B896-40FC-B770-9504AF381161}
 		{29F852AA-A5C1-0E65-6DC3-795E88A102EE} = {D2B8B5EE-A5FE-4C0F-A49E-9608B0F5160A}
+		{E135AE1D-26C0-4424-8698-68B224565F85} = {D2B8B5EE-A5FE-4C0F-A49E-9608B0F5160A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A5638AA6-6B15-46B5-8677-C920FF9AC214}
