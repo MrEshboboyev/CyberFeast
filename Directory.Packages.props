@@ -18,6 +18,7 @@
     <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0-preview.1.25080.5" />
     <PackageVersion Include="Microsoft.Extensions.Options" Version="10.0.0-preview.1.25080.5" />
     <PackageVersion Include="Microsoft.NET.Build.Containers" Version="10.0.100-preview.1.25120.13" />
+    <PackageVersion Include="NSubstitute" Version="5.3.0" />
     <PackageVersion Include="OpenTelemetry.Api" Version="1.11.2" />
     <PackageVersion Include="AutoMapper" Version="14.0.0" />
     <PackageVersion Include="MediatR" Version="12.4.1" />
@@ -142,7 +143,7 @@
     <PackageVersion Include="LinqKit.Microsoft.EntityFrameworkCore" Version="9.0.8" />
     <PackageVersion Include="System.Linq.Async" Version="6.0.1" />
     <PackageVersion Include="System.Linq.Async.Queryable" Version="6.0.1" />
-    <PackageVersion Include="Sieve" Version="3.0.0-beta0015" />
+    <PackageVersion Include="Sieve" Version="2.5.5" />
     <PackageVersion Include="Nito.AsyncEx" Version="5.1.2" />
     <PackageVersion Include="Nito.AsyncEx.Context" Version="5.1.2" />
     <PackageVersion Include="Nito.AsyncEx.Tasks" Version="5.1.2" />

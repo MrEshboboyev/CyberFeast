@@ -30,4 +30,9 @@
     <Folder Include="Suppliers\Exceptions\Domain\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NSubstitute" />
+    <PackageReference Include="Sieve" />
+  </ItemGroup>
+
 </Project>
