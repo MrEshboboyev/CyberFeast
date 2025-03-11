@@ -85,8 +85,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Catalogs.Api", "src\Services\Catalogs\FoodDelivery.Services.Catalogs.Api\FoodDelivery.Services.Catalogs.Api.csproj", "{E135AE1D-26C0-4424-8698-68B224565F85}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Customers", "Customers", "{B17E40F5-3860-4457-AEBE-2CB56E0D2A61}"
+	ProjectSection(SolutionItems) = preProject
+		src\Services\Customers\migrations.bat = src\Services\Customers\migrations.bat
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Customers", "src\Services\Customers\FoodDelivery.Services.Customers\FoodDelivery.Services.Customers.csproj", "{0F653714-9877-425F-900C-45171F92108D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Customers.Api", "src\Services\Customers\FoodDelivery.Services.Customers.Api\FoodDelivery.Services.Customers.Api.csproj", "{00879B93-986C-4021-842F-BEBDA0657091}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -206,6 +211,10 @@ Global
 		{0F653714-9877-425F-900C-45171F92108D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F653714-9877-425F-900C-45171F92108D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F653714-9877-425F-900C-45171F92108D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00879B93-986C-4021-842F-BEBDA0657091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00879B93-986C-4021-842F-BEBDA0657091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00879B93-986C-4021-842F-BEBDA0657091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00879B93-986C-4021-842F-BEBDA0657091}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -247,6 +256,7 @@ Global
 		{E135AE1D-26C0-4424-8698-68B224565F85} = {D2B8B5EE-A5FE-4C0F-A49E-9608B0F5160A}
 		{B17E40F5-3860-4457-AEBE-2CB56E0D2A61} = {37312129-B896-40FC-B770-9504AF381161}
 		{0F653714-9877-425F-900C-45171F92108D} = {B17E40F5-3860-4457-AEBE-2CB56E0D2A61}
+		{00879B93-986C-4021-842F-BEBDA0657091} = {B17E40F5-3860-4457-AEBE-2CB56E0D2A61}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A5638AA6-6B15-46B5-8677-C920FF9AC214}
