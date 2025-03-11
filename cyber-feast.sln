@@ -169,6 +169,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventStoreDb", "EventStoreD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Persistence.EventStoreDB.IntegrationTests", "tests\BuildingBlocks\EventStoreDB\BuildingBlocks.Persistence.EventStoreDB.IntegrationTests\BuildingBlocks.Persistence.EventStoreDB.IntegrationTests.csproj", "{96D55D6F-A7AA-4B10-AA1E-FEC9DEAC9436}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Marten", "Marten", "{6B9D6490-864A-4D99-977A-A791D20AFD19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Persistence.Marten.IntegrationTests", "tests\BuildingBlocks\Marten\BuildingBlocks.Persistence.Marten.IntegrationTests\BuildingBlocks.Persistence.Marten.IntegrationTests.csproj", "{C60F3683-2E53-4BAC-A657-538621B5A8A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MassTransit", "MassTransit", "{6C9EC04F-D0AA-439C-90CB-B8F285B04B9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Integration.MassTransit.IntegrationTests", "tests\BuildingBlocks\MassTransit\BuildingBlocks.Integration.MassTransit.IntegrationTests\BuildingBlocks.Integration.MassTransit.IntegrationTests.csproj", "{154DAD17-18F4-4925-A223-F1C888C85221}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -383,6 +391,14 @@ Global
 		{96D55D6F-A7AA-4B10-AA1E-FEC9DEAC9436}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96D55D6F-A7AA-4B10-AA1E-FEC9DEAC9436}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96D55D6F-A7AA-4B10-AA1E-FEC9DEAC9436}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C60F3683-2E53-4BAC-A657-538621B5A8A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C60F3683-2E53-4BAC-A657-538621B5A8A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C60F3683-2E53-4BAC-A657-538621B5A8A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C60F3683-2E53-4BAC-A657-538621B5A8A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{154DAD17-18F4-4925-A223-F1C888C85221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{154DAD17-18F4-4925-A223-F1C888C85221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{154DAD17-18F4-4925-A223-F1C888C85221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{154DAD17-18F4-4925-A223-F1C888C85221}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -462,6 +478,10 @@ Global
 		{1A069D93-A456-4A3A-BD0E-CFD470E926EE} = {93BC2D07-04C7-44E9-94CB-BDACC368E280}
 		{13937D21-2F3C-44F8-98F0-91C4839546F8} = {9D6CBA4B-B265-4928-8320-3C3450B752A8}
 		{96D55D6F-A7AA-4B10-AA1E-FEC9DEAC9436} = {13937D21-2F3C-44F8-98F0-91C4839546F8}
+		{6B9D6490-864A-4D99-977A-A791D20AFD19} = {9D6CBA4B-B265-4928-8320-3C3450B752A8}
+		{C60F3683-2E53-4BAC-A657-538621B5A8A5} = {6B9D6490-864A-4D99-977A-A791D20AFD19}
+		{6C9EC04F-D0AA-439C-90CB-B8F285B04B9F} = {9D6CBA4B-B265-4928-8320-3C3450B752A8}
+		{154DAD17-18F4-4925-A223-F1C888C85221} = {6C9EC04F-D0AA-439C-90CB-B8F285B04B9F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A5638AA6-6B15-46B5-8677-C920FF9AC214}
