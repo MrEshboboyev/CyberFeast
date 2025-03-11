@@ -27,12 +27,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Suppliers\Exceptions\Domain\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="NSubstitute" />
     <PackageReference Include="Sieve" />
   </ItemGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="FoodDelivery.Services.Catalogs.IntegrationTests" />
+		<InternalsVisibleTo Include="FoodDelivery.Services.Catalogs.EndToEndTests" />
+		<InternalsVisibleTo Include="FoodDelivery.Services.Catalogs.TestShared" />
+		<InternalsVisibleTo Include="FoodDelivery.Services.Catalogs.UnitTests" />
+	</ItemGroup>
 
 </Project>

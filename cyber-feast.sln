@@ -177,6 +177,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MassTransit", "MassTransit"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Integration.MassTransit.IntegrationTests", "tests\BuildingBlocks\MassTransit\BuildingBlocks.Integration.MassTransit.IntegrationTests\BuildingBlocks.Integration.MassTransit.IntegrationTests.csproj", "{154DAD17-18F4-4925-A223-F1C888C85221}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{E03DB862-0D76-4BCD-85BC-19C4CF14B539}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalogs", "Catalogs", "{6CCE5B4E-21CA-40DC-A019-72BF98EE335B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Catalogs.TestShared", "tests\Services\Catalogs\FoodDelivery.Services.Catalogs.TestShared\FoodDelivery.Services.Catalogs.TestShared.csproj", "{5CF10610-123C-4747-9ED1-D345633EFB40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Catalogs.DependencyTests", "tests\Services\Catalogs\FoodDelivery.Services.Catalogs.DependencyTests\FoodDelivery.Services.Catalogs.DependencyTests.csproj", "{E7FF2212-5129-45D6-9F7D-A9612B6ED410}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Catalogs.EndToEndTests", "tests\Services\Catalogs\FoodDelivery.Services.Catalogs.EndToEndTests\FoodDelivery.Services.Catalogs.EndToEndTests.csproj", "{C9281BAA-538D-4C06-A456-B990A0144E59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Catalogs.IntegrationTests", "tests\Services\Catalogs\FoodDelivery.Services.Catalogs.IntegrationTests\FoodDelivery.Services.Catalogs.IntegrationTests.csproj", "{A30014E5-3821-45E3-A808-295CE1170017}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Catalogs.LoadTests", "tests\Services\Catalogs\FoodDelivery.Services.Catalogs.LoadTests\FoodDelivery.Services.Catalogs.LoadTests.csproj", "{A58FFEB4-D041-457C-81CF-48BF175F698C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Catalogs.UnitTests", "tests\Services\Catalogs\FoodDelivery.Services.Catalogs.UnitTests\FoodDelivery.Services.Catalogs.UnitTests.csproj", "{C55695CB-3FF1-4952-91D6-ADADDDFA365F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -399,6 +415,30 @@ Global
 		{154DAD17-18F4-4925-A223-F1C888C85221}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{154DAD17-18F4-4925-A223-F1C888C85221}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{154DAD17-18F4-4925-A223-F1C888C85221}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CF10610-123C-4747-9ED1-D345633EFB40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CF10610-123C-4747-9ED1-D345633EFB40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CF10610-123C-4747-9ED1-D345633EFB40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CF10610-123C-4747-9ED1-D345633EFB40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7FF2212-5129-45D6-9F7D-A9612B6ED410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7FF2212-5129-45D6-9F7D-A9612B6ED410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7FF2212-5129-45D6-9F7D-A9612B6ED410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7FF2212-5129-45D6-9F7D-A9612B6ED410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9281BAA-538D-4C06-A456-B990A0144E59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9281BAA-538D-4C06-A456-B990A0144E59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9281BAA-538D-4C06-A456-B990A0144E59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9281BAA-538D-4C06-A456-B990A0144E59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A30014E5-3821-45E3-A808-295CE1170017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A30014E5-3821-45E3-A808-295CE1170017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A30014E5-3821-45E3-A808-295CE1170017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A30014E5-3821-45E3-A808-295CE1170017}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A58FFEB4-D041-457C-81CF-48BF175F698C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A58FFEB4-D041-457C-81CF-48BF175F698C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A58FFEB4-D041-457C-81CF-48BF175F698C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A58FFEB4-D041-457C-81CF-48BF175F698C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C55695CB-3FF1-4952-91D6-ADADDDFA365F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C55695CB-3FF1-4952-91D6-ADADDDFA365F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C55695CB-3FF1-4952-91D6-ADADDDFA365F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C55695CB-3FF1-4952-91D6-ADADDDFA365F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -482,6 +522,14 @@ Global
 		{C60F3683-2E53-4BAC-A657-538621B5A8A5} = {6B9D6490-864A-4D99-977A-A791D20AFD19}
 		{6C9EC04F-D0AA-439C-90CB-B8F285B04B9F} = {9D6CBA4B-B265-4928-8320-3C3450B752A8}
 		{154DAD17-18F4-4925-A223-F1C888C85221} = {6C9EC04F-D0AA-439C-90CB-B8F285B04B9F}
+		{E03DB862-0D76-4BCD-85BC-19C4CF14B539} = {6B358671-0754-48B5-A88B-5B53FBE25F22}
+		{6CCE5B4E-21CA-40DC-A019-72BF98EE335B} = {E03DB862-0D76-4BCD-85BC-19C4CF14B539}
+		{5CF10610-123C-4747-9ED1-D345633EFB40} = {6CCE5B4E-21CA-40DC-A019-72BF98EE335B}
+		{E7FF2212-5129-45D6-9F7D-A9612B6ED410} = {6CCE5B4E-21CA-40DC-A019-72BF98EE335B}
+		{C9281BAA-538D-4C06-A456-B990A0144E59} = {6CCE5B4E-21CA-40DC-A019-72BF98EE335B}
+		{A30014E5-3821-45E3-A808-295CE1170017} = {6CCE5B4E-21CA-40DC-A019-72BF98EE335B}
+		{A58FFEB4-D041-457C-81CF-48BF175F698C} = {6CCE5B4E-21CA-40DC-A019-72BF98EE335B}
+		{C55695CB-3FF1-4952-91D6-ADADDDFA365F} = {6CCE5B4E-21CA-40DC-A019-72BF98EE335B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A5638AA6-6B15-46B5-8677-C920FF9AC214}
