@@ -10,6 +10,7 @@ using FoodDelivery.Services.Customers.Customers.Models;
 using FoodDelivery.Services.Customers.Customers.ValueObjects;
 using FoodDelivery.Services.Customers.Shared.Clients.Identity;
 using FoodDelivery.Services.Customers.Shared.Data;
+using Microsoft.Extensions.Logging;
 
 namespace FoodDelivery.Services.Customers.Customers.Features.CreatingCustomer.v1;
 

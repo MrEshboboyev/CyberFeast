@@ -1,8 +1,8 @@
 using BuildingBlocks.Persistence.Mongo;
 using Microsoft.EntityFrameworkCore;
-using Tests.Shared.Fixtures;
+using Tests.Shared.TestBase;
 
-namespace Tests.Shared.TestBase;
+namespace Tests.Shared.Fixtures;
 
 public class EndToEndTestTest<TEntryPoint>(SharedFixture<TEntryPoint> sharedFixture, ITestOutputHelper outputHelper)
     : IntegrationTest<TEntryPoint>(sharedFixture, outputHelper)

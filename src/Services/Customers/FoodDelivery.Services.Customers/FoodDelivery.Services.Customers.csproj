@@ -30,4 +30,11 @@
     <ProjectReference Include="..\..\Shared\FoodDelivery.Services.Shared\FoodDelivery.Services.Shared.csproj" />
   </ItemGroup>
 
+	<ItemGroup>
+		<InternalsVisibleTo Include="FoodDelivery.Services.Customers.IntegrationTests" />
+		<InternalsVisibleTo Include="FoodDelivery.Services.Customers.EndToEndTests" />
+		<InternalsVisibleTo Include="FoodDelivery.Services.Customers.TestShared" />
+		<InternalsVisibleTo Include="FoodDelivery.Services.Customers.UnitTests" />
+	</ItemGroup>
+
 </Project>
