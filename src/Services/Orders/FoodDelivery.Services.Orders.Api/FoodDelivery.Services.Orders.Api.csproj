@@ -1,18 +1,26 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<IsPublishable>true</IsPublishable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Build.Containers" />
-  </ItemGroup>
+	<PropertyGroup>
+		<ContainerImageName>orders</ContainerImageName>
+		<ContainerImageTag>dev</ContainerImageTag>
+		<ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:latest</ContainerBaseImage>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks.Web\BuildingBlocks.Web.csproj" />
-    <ProjectReference Include="..\FoodDelivery.Services.Orders\FoodDelivery.Services.Orders.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Build.Containers" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks.Web\BuildingBlocks.Web.csproj" />
+		<ProjectReference Include="..\FoodDelivery.Services.Orders\FoodDelivery.Services.Orders.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="FoodDelivery.Services.Orders.IntegrationTests" />
+	</ItemGroup>
 
 </Project>

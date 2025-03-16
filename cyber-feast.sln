@@ -65,7 +65,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{A0C501FB-E6C6-4574-A5F1-E98D400F2D76}"
 	ProjectSection(SolutionItems) = preProject
+		src\Services\Identity\dev.Dockerfile = src\Services\Identity\dev.Dockerfile
+		src\Services\Identity\Directory.Build.props = src\Services\Identity\Directory.Build.props
+		src\Services\Identity\Dockerfile = src\Services\Identity\Dockerfile
 		src\Services\Identity\migrations.bat = src\Services\Identity\migrations.bat
+		src\Services\Identity\nuget.config = src\Services\Identity\nuget.config
+		src\Services\Identity\watch.Dockerfile = src\Services\Identity\watch.Dockerfile
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Identity", "src\Services\Identity\FoodDelivery.Services.Identity\FoodDelivery.Services.Identity.csproj", "{9C0DF32A-1D6C-495B-B7AA-D1F72D2FCF39}"
@@ -73,6 +78,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Identity.Api", "src\Services\Identity\FoodDelivery.Services.Identity.Api\FoodDelivery.Services.Identity.Api.csproj", "{97BD62F2-D1FE-4FA5-A5DE-18C95C742C70}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Orders", "Orders", "{5EED3D5B-5E7D-4CA4-8F94-C479B8E65740}"
+	ProjectSection(SolutionItems) = preProject
+		src\Services\Orders\dev.Dockerfile = src\Services\Orders\dev.Dockerfile
+		src\Services\Orders\Directory.Build.props = src\Services\Orders\Directory.Build.props
+		src\Services\Orders\Dockerfile = src\Services\Orders\Dockerfile
+		src\Services\Orders\nuget.config = src\Services\Orders\nuget.config
+		src\Services\Orders\watch.Dockerfile = src\Services\Orders\watch.Dockerfile
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Orders", "src\Services\Orders\FoodDelivery.Services.Orders\FoodDelivery.Services.Orders.csproj", "{0B77F88F-F17E-4782-80D7-99601765081C}"
 EndProject
@@ -80,7 +92,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Order
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalogs", "Catalogs", "{D2B8B5EE-A5FE-4C0F-A49E-9608B0F5160A}"
 	ProjectSection(SolutionItems) = preProject
+		src\Services\Catalogs\dev.Dockerfile = src\Services\Catalogs\dev.Dockerfile
+		src\Services\Catalogs\Directory.Build.props = src\Services\Catalogs\Directory.Build.props
+		src\Services\Catalogs\Dockerfile = src\Services\Catalogs\Dockerfile
 		src\Services\Catalogs\migrations.bat = src\Services\Catalogs\migrations.bat
+		src\Services\Catalogs\nuget.config = src\Services\Catalogs\nuget.config
+		src\Services\Catalogs\watch.Dockerfile = src\Services\Catalogs\watch.Dockerfile
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Catalogs", "src\Services\Catalogs\FoodDelivery.Services.Catalogs\FoodDelivery.Services.Catalogs.csproj", "{29F852AA-A5C1-0E65-6DC3-795E88A102EE}"
@@ -89,7 +106,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Catal
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Customers", "Customers", "{B17E40F5-3860-4457-AEBE-2CB56E0D2A61}"
 	ProjectSection(SolutionItems) = preProject
+		src\Services\Customers\dev.Dockerfile = src\Services\Customers\dev.Dockerfile
+		src\Services\Customers\Directory.Build.props = src\Services\Customers\Directory.Build.props
+		src\Services\Customers\Dockerfile = src\Services\Customers\Dockerfile
 		src\Services\Customers\migrations.bat = src\Services\Customers\migrations.bat
+		src\Services\Customers\nuget.config = src\Services\Customers\nuget.config
+		src\Services\Customers\watch.Dockerfile = src\Services\Customers\watch.Dockerfile
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Customers", "src\Services\Customers\FoodDelivery.Services.Customers\FoodDelivery.Services.Customers.csproj", "{0F653714-9877-425F-900C-45171F92108D}"
