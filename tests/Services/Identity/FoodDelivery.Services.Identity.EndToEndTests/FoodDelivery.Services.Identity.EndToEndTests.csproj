@@ -1,10 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-	<PropertyGroup>
-		<TargetFramework>net10.0</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-	</PropertyGroup>
+	
+	<ItemGroup>
+		<Content Include="..\..\..\..\src\Services\Identity\FoodDelivery.Services.Identity.Api\appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+		<Content Include="..\..\..\..\src\Services\Identity\FoodDelivery.Services.Identity.Api\appsettings.test.json" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\FoodDelivery.Services.Identity.TestShared\FoodDelivery.Services.Identity.TestShared.csproj" />

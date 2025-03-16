@@ -209,9 +209,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{E03DB862-0D76-4BCD-85BC-19C4CF14B539}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalogs", "Catalogs", "{6CCE5B4E-21CA-40DC-A019-72BF98EE335B}"
-	ProjectSection(SolutionItems) = preProject
-		tests\Services\Catalogs\FoodDelivery.Services.Catalogs.EndToEndTests\xunit.runner.json = tests\Services\Catalogs\FoodDelivery.Services.Catalogs.EndToEndTests\xunit.runner.json
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Catalogs.TestShared", "tests\Services\Catalogs\FoodDelivery.Services.Catalogs.TestShared\FoodDelivery.Services.Catalogs.TestShared.csproj", "{5CF10610-123C-4747-9ED1-D345633EFB40}"
 EndProject
@@ -226,10 +223,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Catalogs.UnitTests", "tests\Services\Catalogs\FoodDelivery.Services.Catalogs.UnitTests\FoodDelivery.Services.Catalogs.UnitTests.csproj", "{C55695CB-3FF1-4952-91D6-ADADDDFA365F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Customers", "Customers", "{B8FE53CE-F480-4CA3-8D63-2BC65E6F1374}"
-	ProjectSection(SolutionItems) = preProject
-		tests\Services\Customers\FoodDelivery.Services.Customers.EndToEndTests\xunit.runner.json = tests\Services\Customers\FoodDelivery.Services.Customers.EndToEndTests\xunit.runner.json
-		tests\Services\Customers\FoodDelivery.Services.Customers.LoadTests\xunit.runner.json = tests\Services\Customers\FoodDelivery.Services.Customers.LoadTests\xunit.runner.json
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDelivery.Services.Customers.TestShared", "tests\Services\Customers\FoodDelivery.Services.Customers.TestShared\FoodDelivery.Services.Customers.TestShared.csproj", "{A804685F-E64F-4C7E-91CB-0693826BEBA6}"
 EndProject
