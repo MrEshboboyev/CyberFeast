@@ -1,0 +1,14 @@
+<Project>
+
+  <PropertyGroup>
+    <AspNetCoreVersion>10.0.0</AspNetCoreVersion>
+    <AspNetCoreHealthCheckVersion>10.0.0</AspNetCoreHealthCheckVersion>
+    <AspNetCoreHealthCheckUIVersion>10.0.0</AspNetCoreHealthCheckUIVersion>
+    <MicrosoftConfigurationVersion>10.0.0</MicrosoftConfigurationVersion>
+    <MicrosoftDependencyInjectionVersion>10.0.0</MicrosoftDependencyInjectionVersion>
+    <MicrosoftLoggingVersion>10.0.0</MicrosoftLoggingVersion>
+    <MassTransitVersion>8.4.0-develop.2236</MassTransitVersion>
+    <OpenTelemetry>1.11.2</OpenTelemetry>
+  </PropertyGroup>
+
+</Project>
