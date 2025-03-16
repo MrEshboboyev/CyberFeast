@@ -28,7 +28,7 @@ public class TagBySwaggerOperationFilter : IOperationFilter
 
         if (swaggerOperationAttribute != null && swaggerOperationAttribute.Tags.Length != 0)
         {
-            operation.Tags = swaggerOperationAttribute.Tags.Select(
+            operation.Tags = (IList<Microsoft.OpenApi.Models.References.OpenApiTagReference>?)swaggerOperationAttribute.Tags.Select(
                 x => new OpenApiTag
                 {
                     Name = x
@@ -39,7 +39,7 @@ public class TagBySwaggerOperationFilter : IOperationFilter
                 .FirstOrDefault(x => x is SwaggerOperationAttribute) is SwaggerOperationAttribute swaggerOperationEndpoint
             && swaggerOperationEndpoint.Tags.Length != 0)
         {
-            operation.Tags = swaggerOperationEndpoint.Tags.Select(
+            operation.Tags = (IList<Microsoft.OpenApi.Models.References.OpenApiTagReference>?)swaggerOperationEndpoint.Tags.Select(
                 x => new OpenApiTag
                 {
                     Name = x

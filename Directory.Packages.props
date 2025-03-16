@@ -45,7 +45,7 @@
     <PackageVersion Include="EasyCaching.Redis" Version="1.9.4-alpha20241225060119" />
     <PackageVersion Include="EasyCaching.InMemory" Version="1.9.4-alpha20241225060119" />
     <PackageVersion Include="EasyCaching.Core" Version="1.9.4-alpha20241225060119" />
-    <PackageVersion Include="MassTransit.Abstractions" Version="8.3.7" />
+    <PackageVersion Include="MassTransit.Abstractions" Version="8.4.0-develop.2236" />
     <PackageVersion Include="Ben.Demystifier" Version="0.4.1" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="10.0.0-preview.1.25081.1" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.0-preview.1.25081.1" />
@@ -101,7 +101,7 @@
     <PackageVersion Include="Serilog.Extensions.Hosting" Version="9.0.1-dev-02307" />
     <PackageVersion Include="Serilog.Sinks.Async" Version="2.1.0" />
     <PackageVersion Include="Serilog.Sinks.Console" Version="6.0.1-dev-00953" />
-    <PackageVersion Include="Serilog.Sinks.File" Version="6.0.0" />
+    <PackageVersion Include="Serilog.Sinks.File" Version="7.0.0-dev-02301" />
     <PackageVersion Include="Serilog.Sinks.Grafana.Loki" Version="8.3.0" />
     <PackageVersion Include="Serilog.Sinks.OpenTelemetry" Version="4.1.1" />
     <PackageVersion Include="Serilog.Sinks.Seq" Version="9.0.0" />

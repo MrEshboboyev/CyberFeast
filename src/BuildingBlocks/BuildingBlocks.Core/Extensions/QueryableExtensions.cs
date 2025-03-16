@@ -14,15 +14,6 @@ namespace BuildingBlocks.Core.Extensions;
 /// </summary>
 public static class QueryableExtensions
 {
-    /// <summary>
-    /// Applies pagination, sorting, and filtering to an IQueryable<TEntity>.
-    /// </summary>
-    /// <typeparam name="TEntity">The type of the entity.</typeparam>
-    /// <param name="queryable">The queryable object.</param>
-    /// <param name="pageRequest">The page request containing pagination parameters.</param>
-    /// <param name="sieveProcessor">The Sieve processor.</param>
-    /// <param name="cancellationToken">The cancellation token.</param>
-    /// <returns>A paginated list of entities.</returns>
     public static async Task<IPageList<TEntity>> ApplyPagingAsync<TEntity>(
         this IQueryable<TEntity> queryable,
         IPageRequest pageRequest,
@@ -39,42 +30,30 @@ public static class QueryableExtensions
         };
 
         var result = sieveProcessor.Apply(
-            sieveModel, 
+            sieveModel,
             queryable,
             applyPagination: false);
 #pragma warning disable AsyncFixer02
         var total = result.Count();
 #pragma warning restore AsyncFixer02
         result = sieveProcessor.Apply(
-            sieveModel, 
+            sieveModel,
             queryable,
             applyFiltering: false,
             applySorting: false);
 
         var items = await result
             .AsNoTracking()
-            .ToAsyncEnumerable()
             .ToListAsync(cancellationToken: cancellationToken);
 
         return PageList<TEntity>
             .Create(
                 items.AsReadOnly(),
-                pageRequest.PageNumber, 
+                pageRequest.PageNumber,
                 pageRequest.PageSize,
                 total);
     }
 
-    /// <summary>
-    /// Projects entities to another type and applies pagination, sorting, and filtering.
-    /// </summary>
-    /// <typeparam name="TEntity">The type of the entity.</typeparam>
-    /// <typeparam name="TResult">The type to project to.</typeparam>
-    /// <param name="queryable">The queryable object.</param>
-    /// <param name="pageRequest">The page request containing pagination parameters.</param>
-    /// <param name="sieveProcessor">The Sieve processor.</param>
-    /// <param name="configurationProvider">The AutoMapper configuration provider.</param>
-    /// <param name="cancellationToken">The cancellation token.</param>
-    /// <returns>A paginated list of projected entities.</returns>
     public static async Task<IPageList<TResult>> ApplyPagingAsync<TEntity, TResult>(
         this IQueryable<TEntity> queryable,
         IPageRequest pageRequest,
@@ -109,7 +88,6 @@ public static class QueryableExtensions
 
         var items = await projectedQuery
             .AsNoTracking()
-            .ToAsyncEnumerable()
             .ToListAsync(cancellationToken: cancellationToken);
 
         return PageList<TResult>.Create(
@@ -118,17 +96,6 @@ public static class QueryableExtensions
             pageRequest.PageSize, total);
     }
 
-    /// <summary>
-    /// Projects entities to another type and applies pagination, sorting, and filtering.
-    /// </summary>
-    /// <typeparam name="TEntity">The type of the entity.</typeparam>
-    /// <typeparam name="TResult">The type to project to.</typeparam>
-    /// <param name="queryable">The queryable object.</param>
-    /// <param name="pageRequest">The page request containing pagination parameters.</param>
-    /// <param name="sieveProcessor">The Sieve processor.</param>
-    /// <param name="projectionFunc">The function to project entities.</param>
-    /// <param name="cancellationToken">The cancellation token.</param>
-    /// <returns>A paginated list of projected entities.</returns>
     public static async Task<IPageList<TResult>> ApplyPagingAsync<TEntity, TResult>(
         this IQueryable<TEntity> queryable,
         IPageRequest pageRequest,
@@ -147,16 +114,15 @@ public static class QueryableExtensions
         };
 
         var result = sieveProcessor.Apply(
-            sieveModel, 
-            queryable, 
+            sieveModel,
+            queryable,
             applyPagination: false);
 #pragma warning disable AsyncFixer02
-        // The provider for the source 'IQueryable' doesn't implement 'IAsyncQueryProvider'. Only providers that implement 'IAsyncQueryProvider' can be used for Entity Framework asynchronous operations.
         var total = result.Count();
 #pragma warning restore AsyncFixer02
         result = sieveProcessor.Apply(
-            sieveModel, 
-            queryable, 
+            sieveModel,
+            queryable,
             applyFiltering: false,
             applySorting: false); // Only applies pagination
 
@@ -164,30 +130,15 @@ public static class QueryableExtensions
 
         var items = await projectedQuery
             .AsNoTracking()
-            .ToAsyncEnumerable()
             .ToListAsync(cancellationToken: cancellationToken);
 
         return PageList<TResult>.Create(
-            items.AsReadOnly(), 
-            pageRequest.PageNumber, 
-            pageRequest.PageSize, 
+            items.AsReadOnly(),
+            pageRequest.PageNumber,
+            pageRequest.PageSize,
             total);
     }
 
-    /// <summary>
-    /// Projects entities to another type, applies pagination, sorting, and filtering, and allows specifying a sort expression.
-    /// </summary>
-    /// <typeparam name="TEntity">The type of the entity.</typeparam>
-    /// <typeparam name="TResult">The type to project to.</typeparam>
-    /// <typeparam name="TSortKey">The type of the sort key.</typeparam>
-    /// <param name="collection">The queryable collection.</param>
-    /// <param name="pageRequest">The page request containing pagination parameters.</param>
-    /// <param name="sieveProcessor">The Sieve processor.</param>
-    /// <param name="projectionFunc">The function to project entities.</param>
-    /// <param name="predicate">The predicate to filter entities.</param>
-    /// <param name="sortExpression">The expression to sort entities.</param>
-    /// <param name="cancellationToken">The cancellation token.</param>
-    /// <returns>A paginated list of projected entities.</returns>
     public static async Task<IPageList<TResult>> ApplyPagingAsync<TEntity, TResult, TSortKey>(
         this IQueryable<TEntity> collection,
         IPageRequest pageRequest,
@@ -213,17 +164,6 @@ public static class QueryableExtensions
         return await query.ApplyPagingAsync(pageRequest, sieveProcessor, projectionFunc, cancellationToken);
     }
 
-    /// <summary>
-    /// Projects entities to another type and applies pagination, sorting, and filtering using a mapping function.
-    /// </summary>
-    /// <typeparam name="TEntity">The type of the entity.</typeparam>
-    /// <typeparam name="TResult">The type to project to.</typeparam>
-    /// <param name="queryable">The queryable object.</param>
-    /// <param name="pageRequest">The page request containing pagination parameters.</param>
-    /// <param name="sieveProcessor">The Sieve processor.</param>
-    /// <param name="map">The function to map entities.</param>
-    /// <param name="cancellationToken">The cancellation token.</param>
-    /// <returns>A paginated list of projected entities.</returns>
     public static async Task<IPageList<TResult>> ApplyPagingAsync<TEntity, TResult>(
         this IQueryable<TEntity> queryable,
         IPageRequest pageRequest,
@@ -249,38 +189,23 @@ public static class QueryableExtensions
         var total = result.Count();
 #pragma warning restore AsyncFixer02
         result = sieveProcessor.Apply(
-            sieveModel, 
-            queryable, 
+            sieveModel,
+            queryable,
             applyFiltering: false,
             applySorting: false); // Only applies pagination
 
         var items = await result
             .Select(x => map(x))
             .AsNoTracking()
-            .ToAsyncEnumerable()
             .ToListAsync(cancellationToken: cancellationToken);
 
         return PageList<TResult>.Create(
-            items.AsReadOnly(), 
-            pageRequest.PageNumber, 
-            pageRequest.PageSize, 
+            items.AsReadOnly(),
+            pageRequest.PageNumber,
+            pageRequest.PageSize,
             total);
     }
 
-    /// <summary>
-    /// Projects entities to another type, applies pagination, sorting, and filtering, and allows specifying a sort expression.
-    /// </summary>
-    /// <typeparam name="TEntity">The type of the entity.</typeparam>
-    /// <typeparam name="TResult">The type to project to.</typeparam>
-    /// <typeparam name="TSortKey">The type of the sort key.</typeparam>
-    /// <param name="collection">The queryable collection.</param>
-    /// <param name="pageRequest">The page request containing pagination parameters.</param>
-    /// <param name="sieveProcessor">The Sieve processor.</param>
-    /// <param name="configuration">The AutoMapper configuration.</param>
-    /// <param name="predicate">The predicate to filter entities.</param>
-    /// <param name="sortExpression">The expression to sort entities.</param>
-    /// <param name="cancellationToken">The cancellation token.</param>
-    /// <returns>A paginated list of projected entities.</returns>
     public static async Task<IPageList<TResult>> ApplyPagingAsync<TEntity, TResult, TSortKey>(
         this IQueryable<TEntity> collection,
         IPageRequest pageRequest,
@@ -311,18 +236,6 @@ public static class QueryableExtensions
         );
     }
 
-    /// <summary>
-    /// Applies pagination, sorting, and filtering to an IQueryable<TEntity> and allows specifying a sort expression.
-    /// </summary>
-    /// <typeparam name="TEntity">The type of the entity.</typeparam>
-    /// <typeparam name="TSortKey">The type of the sort key.</typeparam>
-    /// <param name="collection">The queryable collection.</param>
-    /// <param name="pageRequest">The page request containing pagination parameters.</param>
-    /// <param name="sieveProcessor">The Sieve processor.</param>
-    /// <param name="predicate">The predicate to filter entities.</param>
-    /// <param name="sortExpression">The expression to sort entities.</param>
-    /// <param name="cancellationToken">The cancellation token.</param>
-    /// <returns>A paginated list of entities.</returns>
     public static async Task<IPageList<TEntity>> ApplyPagingAsync<TEntity, TSortKey>(
         this IQueryable<TEntity> collection,
         IPageRequest pageRequest,

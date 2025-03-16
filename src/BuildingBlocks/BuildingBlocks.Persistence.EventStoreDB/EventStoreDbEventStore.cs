@@ -1,5 +1,4 @@
-﻿using System.Collections.Immutable;
-using BuildingBlocks.Abstractions.Domain.EventSourcing;
+﻿using BuildingBlocks.Abstractions.Domain.EventSourcing;
 using BuildingBlocks.Abstractions.Persistence.EventStore;
 using BuildingBlocks.Persistence.EventStoreDB.Extensions;
 using EventStore.Client;
@@ -89,7 +88,7 @@ public class EventStoreDbEventStore(EventStoreClient grpcClient) : IEventStore
     {
         return AppendEventsAsync(
             streamId,
-            new List<IStreamEventEnvelope> { @event }.ToImmutableList(),
+            [@event],
             ExpectedStreamVersion.NoStream,
             cancellationToken
         );
@@ -111,7 +110,7 @@ public class EventStoreDbEventStore(EventStoreClient grpcClient) : IEventStore
     {
         return AppendEventsAsync(
             streamId,
-            new List<IStreamEventEnvelope> { @event }.ToImmutableList(),
+            [@event],
             expectedRevision,
             cancellationToken
         );

@@ -128,7 +128,7 @@ public abstract class EfRepositoryBase<TDbContext, TEntity, TKey>(
             query = query.OrderByDescending(sortExpression);
         }
 
-        return query.ProjectTo<TResult>(configuration).ToAsyncEnumerable();
+        return query.ProjectTo<TResult>(configuration).AsAsyncEnumerable();
     }
 
     /// <summary>
