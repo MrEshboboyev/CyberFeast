@@ -1,36 +1,40 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
+	<PropertyGroup>
+		<AssemblyName>BuildingBlocks.HealthCheck</AssemblyName>
+		<RootNamespace>BuildingBlocks.HealthCheck</RootNamespace>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<IsPackable>true</IsPackable>
+	</PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AspNetCore.HealthChecks.Network"/>
-        <PackageReference Include="AspNetCore.HealthChecks.Prometheus.Metrics"/>
-        <PackageReference Include="AspNetCore.HealthChecks.Publisher.Prometheus"/>
-        <PackageReference Include="AspNetCore.HealthChecks.System"/>
-        <PackageReference Include="AspNetCore.HealthChecks.UI"/>
-        <PackageReference Include="AspNetCore.HealthChecks.UI.Client"/>
-        <PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage"/>
-        <PackageReference Include="AspNetCore.HealthChecks.Uris"/>
-        <PackageReference Include="Microsoft.Diagnostics.NETCore.Client"/>
-        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks"/>
-        <PackageReference Include="AspNetCore.HealthChecks.MongoDb"/>
-        <PackageReference Include="AspNetCore.HealthChecks.UI.SQLite.Storage"/>
-        <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq"/>
-        <PackageReference Include="AspNetCore.HealthChecks.NpgSql"/>
-        <PackageReference Include="AspNetCore.HealthChecks.EventStore"/>
-        <PackageReference Include="prometheus-net.AspNetCore"/>
-        <PackageReference Include="prometheus-net.AspNetCore.Grpc"/>
-        <PackageReference Include="prometheus-net.AspNetCore.HealthChecks"/>
-        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks"/>
-        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore"/>
-        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.ResourceUtilization"/>
+        <PackageReference Include="AspNetCore.HealthChecks.Network" />
+        <PackageReference Include="AspNetCore.HealthChecks.Prometheus.Metrics" />
+        <PackageReference Include="AspNetCore.HealthChecks.Publisher.Prometheus" />
+        <PackageReference Include="AspNetCore.HealthChecks.System" />
+        <PackageReference Include="AspNetCore.HealthChecks.UI" />
+        <PackageReference Include="AspNetCore.HealthChecks.UI.Client" />
+        <PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage" />
+        <PackageReference Include="AspNetCore.HealthChecks.Uris" />
+        <PackageReference Include="Microsoft.Diagnostics.NETCore.Client" />
+        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" />
+        <PackageReference Include="AspNetCore.HealthChecks.MongoDb" />
+        <PackageReference Include="AspNetCore.HealthChecks.UI.SQLite.Storage" />
+        <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" />
+        <PackageReference Include="AspNetCore.HealthChecks.NpgSql" />
+        <PackageReference Include="AspNetCore.HealthChecks.EventStore" />
+        <PackageReference Include="prometheus-net.AspNetCore" />
+        <PackageReference Include="prometheus-net.AspNetCore.Grpc" />
+        <PackageReference Include="prometheus-net.AspNetCore.HealthChecks" />
+        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" />
+        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" />
+        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.ResourceUtilization" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\BuildingBlocks.Abstractions\BuildingBlocks.Abstractions.csproj" />
       <ProjectReference Include="..\BuildingBlocks.Core\BuildingBlocks.Core.csproj" />
     </ItemGroup>
 
