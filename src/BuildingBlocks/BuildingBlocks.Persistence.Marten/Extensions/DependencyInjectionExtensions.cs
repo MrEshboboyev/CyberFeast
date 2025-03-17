@@ -1,8 +1,9 @@
-﻿using System.Reflection;
+using System.Reflection;
 using BuildingBlocks.Core.Extensions;
 using BuildingBlocks.Core.Extensions.ServiceCollection;
 using BuildingBlocks.Core.Persistence.EventStore.Extensions;
 using BuildingBlocks.Persistence.Marten.Subscriptions;
+using JasperFx;
 using Marten;
 using Marten.Events.Daemon.Resiliency;
 using Marten.Events.Projections;
