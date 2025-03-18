@@ -1,6 +1,5 @@
 using System.Reflection;
 using BuildingBlocks.Caching.Behaviors;
-using BuildingBlocks.Caching.Behaviours;
 using BuildingBlocks.Caching.Extensions;
 using BuildingBlocks.Core.Extensions;
 using BuildingBlocks.Core.Messaging;

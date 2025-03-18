@@ -1,5 +1,6 @@
 using FluentAssertions;
 using FluentAssertions.Primitives;
+using FluentAssertions.Web;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Json;
 

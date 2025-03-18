@@ -201,5 +201,8 @@
     <PackageVersion Include="AsyncAwaitBestPractices" Version="9.0.0" />
     <!--EF Core-->
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8" />
+
+    <!--Excludes-->
+    <PackageVersion Include="System.Linq.Async" Version="6.0.1" ExcludeAssets="All" />
   </ItemGroup>
 </Project>

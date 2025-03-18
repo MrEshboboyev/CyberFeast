@@ -1,4 +1,5 @@
 using BuildingBlocks.Abstractions.Commands;
+using BuildingBlocks.Abstractions.Persistence;
 using BuildingBlocks.Abstractions.Queries;
 using BuildingBlocks.Core.Exception.Types;
 using BuildingBlocks.Core.Extensions;
@@ -18,7 +19,7 @@ using Microsoft.Extensions.Options;
 
 namespace FoodDelivery.Services.Identity.Identity.Features.Login.v1;
 
-internal record Login(string UserNameOrEmail, string Password, bool Remember) : ICommand<LoginResult>, ITxRequest
+internal record Login(string UserNameOrEmail, string Password, bool Remember) : ICommand<LoginResult>, ITransactionRequest
 {
     /// <summary>
     /// Login with in-line validator.

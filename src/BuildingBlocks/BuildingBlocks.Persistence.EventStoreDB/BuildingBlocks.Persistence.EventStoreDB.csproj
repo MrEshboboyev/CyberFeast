@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	
-    <ItemGroup>
-        <PackageReference Include="EventStore.Client.Grpc.Streams" />
-    </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\BuildingBlocks.Core\BuildingBlocks.Core.csproj" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EventStore.Client.Grpc.Streams" />
+    <PackageReference Include="System.Linq.Async" ExcludeAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BuildingBlocks.Core\BuildingBlocks.Core.csproj" />
+  </ItemGroup>
 
 </Project>
