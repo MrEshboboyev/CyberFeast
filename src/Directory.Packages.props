@@ -67,7 +67,7 @@
     <PackageVersion Include="Open.ChannelExtensions" Version="9.0.0" />
     <PackageVersion Include="Respawn" Version="6.2.1" />
     <PackageVersion Include="RestAssured.Net" Version="4.7.0" />
-    <PackageVersion Include="Riok.Mapperly" Version="4.2.0-next.1" />
+    <PackageVersion Include="Riok.Mapperly" Version="3.6.0" />
     <PackageVersion Include="Scrutor" Version="6.0.1" />
     <PackageVersion Include="Serilog.Sinks.XUnit" Version="3.0.19" />
     <PackageVersion Include="Squadron.Mongo" Version="0.24.0" />

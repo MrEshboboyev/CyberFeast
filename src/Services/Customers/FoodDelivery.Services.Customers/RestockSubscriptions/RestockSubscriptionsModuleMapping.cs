@@ -1,7 +1,7 @@
 using FoodDelivery.Services.Customers.RestockSubscriptions.Dtos.v1;
 using FoodDelivery.Services.Customers.RestockSubscriptions.Features.CreatingRestockSubscription.v1;
-using FoodDelivery.Services.Customers.RestockSubscriptions.Models.Read;
 using Riok.Mapperly.Abstractions;
+using RestockSubscription = FoodDelivery.Services.Customers.RestockSubscriptions.Models.Read.RestockSubscriptionReadModel;
 
 namespace FoodDelivery.Services.Customers.RestockSubscriptions;
 
@@ -32,46 +32,46 @@ internal static partial class RestockSubscriptionsModuleMapping
         this Models.Write.RestockSubscription restockSubscription
     );
 
-    [MapperIgnoreTarget(nameof(RestockSubscriptionReadModel.Id))]
+    [MapperIgnoreTarget(nameof(RestockSubscription.Id))]
     [MapProperty(
         $"{nameof(Models.Write.RestockSubscription.Id)}.{nameof(Models.Write.RestockSubscription.Id.Value)}",
-        nameof(RestockSubscriptionReadModel.RestockSubscriptionId)
+        nameof(RestockSubscription.RestockSubscriptionId)
     )]
     [MapProperty(
         $"{nameof(Models.Write.RestockSubscription.Email)}.{nameof(Models.Write.RestockSubscription.Email.Value)}",
-        nameof(RestockSubscriptionReadModel.Email)
+        nameof(RestockSubscription.Email)
     )]
     [MapProperty(
         $"{nameof(Models.Write.RestockSubscription.ProductInformation)}.{nameof(Models.Write.RestockSubscription.ProductInformation.Name)}",
-        nameof(RestockSubscriptionReadModel.ProductName)
+        nameof(RestockSubscription.ProductName)
     )]
     [MapProperty(
         $"{nameof(Models.Write.RestockSubscription.ProductInformation)}.{nameof(Models.Write.RestockSubscription.ProductInformation.Id.Value)}",
-        nameof(RestockSubscriptionReadModel.ProductId)
+        nameof(RestockSubscription.ProductId)
     )]
     [MapProperty(
         $"{nameof(Models.Write.RestockSubscription.CustomerId)}.{nameof(Models.Write.RestockSubscription.CustomerId.Value)}",
-        nameof(RestockSubscriptionReadModel.CustomerId)
+        nameof(RestockSubscription.CustomerId)
     )]
-    internal static partial RestockSubscriptionReadModel ToRestockSubscription(
+    internal static partial RestockSubscription ToRestockSubscription(
         this Models.Write.RestockSubscription restockSubscription
     );
 
-    [MapProperty(nameof(RestockSubscriptionReadModel.RestockSubscriptionId), nameof(RestockSubscriptionDto.Id))]
+    [MapProperty(nameof(RestockSubscription.RestockSubscriptionId), nameof(RestockSubscriptionDto.Id))]
     internal static partial RestockSubscriptionDto ToRestockSubscriptionDto(
-        this RestockSubscriptionReadModel restockSubscription
+        this RestockSubscription restockSubscription
     );
 
-    [MapperIgnoreTarget(nameof(RestockSubscriptionReadModel.Id))]
+    [MapperIgnoreTarget(nameof(RestockSubscription.Id))]
     [MapProperty(
         nameof(CreateMongoRestockSubscriptionReadModels.RestockSubscriptionId),
-        nameof(RestockSubscriptionReadModel.RestockSubscriptionId)
+        nameof(RestockSubscription.RestockSubscriptionId)
     )]
-    internal static partial RestockSubscriptionReadModel ToRestockSubscription(
+    internal static partial RestockSubscription ToRestockSubscription(
         this CreateMongoRestockSubscriptionReadModels createMongoRestockSubscriptionReadModels
     );
 
     internal static partial IQueryable<RestockSubscriptionDto> ProjectToRestockSubscriptionDto(
-        this IQueryable<RestockSubscriptionReadModel> queryable
+        this IQueryable<RestockSubscription> queryable
     );
 }
