@@ -28,7 +28,6 @@
         <PackageReference Include="prometheus-net.AspNetCore" />
         <PackageReference Include="prometheus-net.AspNetCore.Grpc" />
         <PackageReference Include="prometheus-net.AspNetCore.HealthChecks" />
-        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" />
         <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" />
         <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.ResourceUtilization" />
     </ItemGroup>

@@ -2,12 +2,6 @@
   <Import Project=".\Packages.props" />
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
-    <EnablePackageVersionOverride>true</EnablePackageVersionOverride>
-  </PropertyGroup>
-  <PropertyGroup>
-    <IsPublishable>false</IsPublishable>
-    <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="AutoBogus.NSubstitute" Version="2.13.1" />
