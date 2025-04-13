@@ -1,11 +1,9 @@
-﻿using MediatR;
-
-namespace BuildingBlocks.Abstractions.Messaging;
+﻿namespace BuildingBlocks.Abstractions.Messages;
 
 /// <summary>
 /// Defines the structure of a message.
 /// </summary>
-public interface IMessage : INotification
+public interface IMessage
 {
     /// <summary>
     /// Gets the unique identifier of the message.

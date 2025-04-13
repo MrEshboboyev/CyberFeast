@@ -1,6 +1,6 @@
 ﻿using BuildingBlocks.Abstractions.Events;
 
-namespace BuildingBlocks.Abstractions.Messaging;
+namespace BuildingBlocks.Abstractions.Messages;
 
 /// <summary>
 /// Defines methods for publishing messages.

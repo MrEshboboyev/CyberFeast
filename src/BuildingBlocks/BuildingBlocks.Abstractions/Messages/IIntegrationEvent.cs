@@ -1,4 +1,4 @@
-﻿namespace BuildingBlocks.Abstractions.Messaging;
+﻿namespace BuildingBlocks.Abstractions.Messages;
 
 /// <summary>
 /// Defines the structure for an integration event.

@@ -1,4 +1,4 @@
-﻿namespace BuildingBlocks.Abstractions.Messaging;
+﻿namespace BuildingBlocks.Abstractions.Messages;
 
 /// <summary>
 /// Marker interface for classes that have external events.

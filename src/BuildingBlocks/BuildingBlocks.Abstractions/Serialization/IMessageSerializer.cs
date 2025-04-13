@@ -1,5 +1,5 @@
 ﻿using BuildingBlocks.Abstractions.Events;
-using BuildingBlocks.Abstractions.Messaging;
+using BuildingBlocks.Abstractions.Messages;
 
 namespace BuildingBlocks.Abstractions.Serialization;
 

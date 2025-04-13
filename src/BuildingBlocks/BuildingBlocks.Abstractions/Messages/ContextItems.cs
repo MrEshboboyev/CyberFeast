@@ -1,11 +1,11 @@
-﻿namespace BuildingBlocks.Abstractions.Messaging;
+﻿namespace BuildingBlocks.Abstractions.Messages;
 
 /// <summary>
 /// Provides a way to store and retrieve context items using a dictionary.
 /// </summary>
 public class ContextItems
 {
-    private readonly Dictionary<string, object?> _items = new();
+    private readonly Dictionary<string, object?> _items = [];
 
     /// <summary>
     /// Adds an item to the dictionary with the specified key and value.
