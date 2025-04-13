@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-
-namespace BuildingBlocks.Abstractions.Core.Paging;
+﻿namespace BuildingBlocks.Abstractions.Core.Paging;
 
 /// <summary>
 /// Defines a contract for paginated lists of items.
@@ -21,8 +19,5 @@ public interface IPageList<T>
     int PageSize { get; init; }
 
     IPageList<TR> MapTo<TR>(Func<T, TR> map)
-        where TR : class;
-
-    public IPageList<TR> MapTo<TR>(IMapper mapper)
         where TR : class;
 }
